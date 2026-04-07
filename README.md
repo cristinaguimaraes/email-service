@@ -2,14 +2,14 @@
 
 A simple full-stack email service built with AWS and SST.
 
-It exposes an API and a React UI to send emails asynchronously using EventBridge, SQS, and SES.
+It provides an API and a React UI to send emails asynchronously using EventBridge, SQS, and SES.
 
 ---
 
 ## 🚀 Live
 
-* Frontend: `<WEB_URL>`
-* API: `<API_URL>`
+* Frontend: `https://d2i2msqs752nav.cloudfront.net`
+* API: `(https://d2i2msqs752nav.cloudfront.net)`
 
 ---
 
