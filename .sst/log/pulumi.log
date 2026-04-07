@@ -2,50 +2,37 @@ Updating (cristinagferreira):
 @ updating....
 
 @ updating..........
- +  aws:cloudfront:Function WebCloudfrontFunctionRequest creating (0s) 
- +  command:local:Command WebBuilder creating (0s) 
- +  command:local:Command WebBuilder creating (0s) 
- +  command:local:Command WebBuilder creating (0s) > web@0.0.0 build
- +  command:local:Command WebBuilder creating (0s) > tsc -b && vite build
- +  command:local:Command WebBuilder creating (0s) 
-@ updating.....
- +  command:local:Command WebBuilder creating (1s) vite v8.0.5 building client environment for production...
- +  command:local:Command WebBuilder creating (1s) [2Ktransforming...✓ 16 modules transformed.
- +  command:local:Command WebBuilder creating (1s) rendering chunks...
- +  command:local:Command WebBuilder creating (1s) computing gzip size...
- +  command:local:Command WebBuilder creating (1s) dist/index.html                   0.45 kB │ gzip:  0.29 kB
- +  command:local:Command WebBuilder creating (1s) dist/assets/index-DGNrK5qb.css    1.78 kB │ gzip:  0.81 kB
- +  command:local:Command WebBuilder creating (1s) dist/assets/index-CrIV4k4q.js   191.62 kB │ gzip: 60.52 kB
- +  command:local:Command WebBuilder creating (1s) 
- +  command:local:Command WebBuilder creating (1s) ✓ built in 111ms
- +  command:local:Command WebBuilder created (1s) ✓ built in 111ms
+ ++ command:local:Command WebBuilder creating replacement (0s) [diff: ]
 @ updating....
- +  pulumi-nodejs:dynamic:Resource WebKvKeys.sst.aws.KvKeys creating (0s) 
- +  pulumi-nodejs:dynamic:Resource WebAssetFiles.sst.aws.BucketFiles creating (0s) 
+ ++ command:local:Command WebBuilder creating replacement (0s) [diff: ]; 
+ ++ command:local:Command WebBuilder creating replacement (0s) [diff: ]; > web@0.0.0 build
+ ++ command:local:Command WebBuilder creating replacement (0s) [diff: ]; > tsc -b && vite build
+ ++ command:local:Command WebBuilder creating replacement (0s) [diff: ]; 
 @ updating....
- +  aws:cloudfront:Function WebCloudfrontFunctionRequest created (3s) 
- +  aws:cloudfront:Distribution WebCdnDistribution creating (0s) 
- +  pulumi-nodejs:dynamic:Resource WebKvKeys.sst.aws.KvKeys created (0.70s) 
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; vite v8.0.5 building client environment for production...
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; [2Ktransforming...✓ 16 modules transformed.
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; rendering chunks...
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; computing gzip size...
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; dist/index.html                   0.45 kB │ gzip:  0.29 kB
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; dist/assets/index-DGNrK5qb.css    1.78 kB │ gzip:  0.81 kB
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; dist/assets/index-CrIV4k4q.js   191.62 kB │ gzip: 60.52 kB
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; 
+ ++ command:local:Command WebBuilder creating replacement (2s) [diff: ]; ✓ built in 138ms
+ ++ command:local:Command WebBuilder created replacement (2s) [diff: ]; ✓ built in 138ms
+ +- command:local:Command WebBuilder replacing (0s) [diff: ]; ✓ built in 138ms
+ +- command:local:Command WebBuilder replaced (0.00s) [diff: ]; ✓ built in 138ms
 @ updating....
- +  pulumi-nodejs:dynamic:Resource WebAssetFiles.sst.aws.BucketFiles created (1s) 
-@ updating......
- +  aws:cloudfront:Distribution WebCdnDistribution created (4s) 
- +  pulumi-nodejs:dynamic:Resource WebCdnWaiter.sst.aws.DistributionDeploymentWaiter creating (0s) 
- +  sst:sst:LinkRef WebLinkRef creating (0s) 
- +  pulumi-nodejs:dynamic:Resource WebInvalidation.sst.aws.DistributionInvalidation creating (0s) 
-@ updating....
- +  pulumi-nodejs:dynamic:Resource WebInvalidation.sst.aws.DistributionInvalidation created (0.61s) 
-@ updating........................................................................................................................................................................................................................................................................................
- +  pulumi-nodejs:dynamic:Resource WebCdnWaiter.sst.aws.DistributionDeploymentWaiter created (277s) 
+ -- command:local:Command WebBuilder deleting original (0s) [diff: ]; ✓ built in 138ms
+ -- command:local:Command WebBuilder deleted original (0.08s) [diff: ]; ✓ built in 138ms
     pulumi:pulumi:Stack email-service-cristinagferreira  
 Outputs:
     _protect: false
     api     : "https://wnyfu10237.execute-api.eu-west-1.amazonaws.com"
-  + web     : "https://d2i2msqs752nav.cloudfront.net"
+    web     : "https://d2i2msqs752nav.cloudfront.net"
 
 Resources:
-    + 8 created
-    46 unchanged
+    +-1 replaced
+    53 unchanged
 
-Duration: 4m53s
+Duration: 11s
 

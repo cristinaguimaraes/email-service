@@ -15,7 +15,7 @@ export default $config({
   
       const queue = new sst.aws.Queue("EmailQueue", {
         dlq: {
-          queue: dlq.arn,
+          queue: dlq,
           retry: 3,
         },
       });
@@ -55,7 +55,7 @@ export default $config({
       const web = new sst.aws.StaticSite("Web", {
         path: "web",
         build: {
-          command: "npm run build",
+          command: "npm install && npm run build",
           output: "dist",
         },
         environment: {

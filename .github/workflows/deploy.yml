@@ -37,5 +37,25 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Verify S3 access
+        run: aws s3 ls    
+
       - name: Deploy
-        run: npx sst deploy --stage prod --print-logs
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: npx sst deploy --stage cristinagferreira --verbose > sst_out.txt 2>&1 || (tail -n 100 sst_out.txt && exit 1)
+
+      - name: Print debug logs on failure
+        if: failure()
+        run: |
+          echo "=== SST log ==="
+          cat .sst/log/sst.log || true
+
+          echo "=== Pulumi files ==="
+          find .sst/pulumi -type f | sort || true
+
+          echo "=== Pulumi event logs ==="
+          find .sst/pulumi -name "eventlog.json" -exec sh -c 'echo "--- {} ---"; cat "{}"; echo' \; || true   
