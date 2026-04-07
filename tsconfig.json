@@ -1,5 +1,23 @@
 {
-    "extends": "./.sst/platform/tsconfig.json",
-    "include": ["stacks/**/*", "sst.config.ts"],
-    "exclude": ["packages/", "apps/", "tooling/"]
-  }
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": [
+      "node",
+      "aws-lambda"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*",
+    "sst.config.ts"
+  ],
+  "exclude": [
+    "web",
+    "node_modules"
+  ]
+}

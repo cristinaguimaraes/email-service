@@ -38,4 +38,4 @@ jobs:
           aws-region: eu-west-1
 
       - name: Deploy
-        run: npx sst deploy
+        run: npx sst deploy --stage prod --print-logs
