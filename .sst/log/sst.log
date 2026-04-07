@@ -1,66 +1,76 @@
-time=2026-04-07T11:07:11.573+02:00 level=INFO msg="checking for pulumi" path="/Users/cristinagferreira/Library/Application Support/sst/bin/pulumi"
-time=2026-04-07T11:07:12.600+02:00 level=INFO msg="checking for bun" path="/Users/cristinagferreira/Library/Application Support/sst/bin/bun"
-time=2026-04-07T11:07:13.329+02:00 level=INFO msg="initializing project" version=4.6.10
-time=2026-04-07T11:07:13.330+02:00 level=INFO msg="esbuild building" out=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775552833330.mjs
-time=2026-04-07T11:07:13.340+02:00 level=INFO msg="esbuild built" outfile=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775552833330.mjs
-time=2026-04-07T11:07:13.341+02:00 level=INFO msg="evaluating config"
-time=2026-04-07T11:07:13.391+02:00 level=INFO msg="config evaluated"
-time=2026-04-07T11:07:13.393+02:00 level=INFO msg="checking platform"
-time=2026-04-07T11:07:13.393+02:00 level=INFO msg="loading home"
-time=2026-04-07T11:07:13.395+02:00 level=INFO msg="aws credentials found" region=eu-west-1 profile=personal
-time=2026-04-07T11:07:13.395+02:00 level=INFO msg="fetching bootstrap"
-time=2026-04-07T11:07:13.603+02:00 level=INFO msg="found existing bootstrap" data="{\"version\":5,\"asset\":\"sst-asset-mcxfcxkfukku\",\"assetEcrRegistryId\":\"540175642752\",\"assetEcrUrl\":\"540175642752.dkr.ecr.eu-west-1.amazonaws.com/sst-asset\",\"state\":\"sst-state-mcxfcxkfukku\",\"appsyncHttp\":\"\",\"appsyncRealtime\":\"\"}"
-time=2026-04-07T11:07:13.603+02:00 level=INFO msg="loaded config" app=email-service stage=cristinagferreira
-time=2026-04-07T11:07:13.603+02:00 level=INFO msg="initializing ui" isTTY=true
-time=2026-04-07T11:07:13.603+02:00 level=INFO msg="server port assigned" port=13557
-time=2026-04-07T11:07:13.603+02:00 level=INFO msg="running stack command" service=project.run cmd=deploy
-time=2026-04-07T11:07:13.603+02:00 level=INFO msg=starting service=server
-time=2026-04-07T11:07:13.604+02:00 level=INFO msg="INFO locking app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:13.604+02:00 level=INFO msg="INFO getting data key=lock app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:13.604+02:00 level=INFO msg=server service=server addr=0.0.0.0:13557
-time=2026-04-07T11:07:13.604+02:00 level=INFO msg="server ready to accept connections" service=server
-time=2026-04-07T11:07:14.079+02:00 level=INFO msg="INFO putting update app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:14.268+02:00 level=INFO msg="INFO getting passphrase app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:14.483+02:00 level=INFO msg="INFO pulling state app=email-service stage=cristinagferreira out=/Users/cristinagferreira/cursor/email-service/.sst/pulumi/fe6298cdd7bbab69b79e4ff2/.pulumi/stacks/email-service/cristinagferreira.json"
-time=2026-04-07T11:07:15.020+02:00 level=INFO msg="got previous deployment" service=project.run updateID=fe6298cdd7bbab69b79e4ff2
-time=2026-04-07T11:07:15.020+02:00 level=INFO msg="esbuild building" out=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775552834482.mjs
-time=2026-04-07T11:07:15.066+02:00 level=INFO msg="esbuild built" outfile=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775552834482.mjs
-time=2026-04-07T11:07:15.073+02:00 level=INFO msg="built sst.config.ts" service=project.run updateID=fe6298cdd7bbab69b79e4ff2 to=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775552834482.mjs
-time=2026-04-07T11:07:15.077+02:00 level=INFO msg="tracked files" service=project.run updateID=fe6298cdd7bbab69b79e4ff2
-time=2026-04-07T11:07:15.077+02:00 level=INFO msg="INFO getting data key=secret app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:15.077+02:00 level=INFO msg="INFO getting data key=secret app=email-service stage=_fallback"
-time=2026-04-07T11:07:15.663+02:00 level=INFO msg="starting pulumi" service=project.run updateID=fe6298cdd7bbab69b79e4ff2 args="[/Users/cristinagferreira/Library/Application Support/sst/bin/pulumi up --yes -f --stack organization/email-service/cristinagferreira --non-interactive --event-log /Users/cristinagferreira/cursor/email-service/.sst/pulumi/fe6298cdd7bbab69b79e4ff2/eventlog.json --config aws:defaultTags={\"tags\":{\"sst:app\":\"email-service\",\"sst:stage\":\"cristinagferreira\"}} --config aws:region=eu-west-1]"
-time=2026-04-07T11:07:20.665+02:00 level=INFO msg="INFO pushing partial state updateID=fe6298cdd7bbab69b79e4ff2"
-time=2026-04-07T11:07:34.944+02:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2026-04-07T11:07:34.962+02:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2026-04-07T11:07:34.963+02:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2026-04-07T11:07:34.964+02:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2026-04-07T11:07:34.964+02:00 level=INFO msg="building function" runtime=nodejs24.x functionID=EmailApiRouteTmskrbHandler
-time=2026-04-07T11:07:34.964+02:00 level=INFO msg="building function" runtime=nodejs24.x functionID=EmailQueueSubscriberMwrdsvFunction
-time=2026-04-07T11:07:34.968+02:00 level=INFO msg="loader info" service=runtime.node functionID=EmailApiRouteTmskrbHandler loader=map[]
-time=2026-04-07T11:07:34.968+02:00 level=INFO msg="loader info" service=runtime.node functionID=EmailQueueSubscriberMwrdsvFunction loader=map[]
-time=2026-04-07T11:07:34.969+02:00 level=INFO msg="running esbuild" service=runtime.node functionID=EmailQueueSubscriberMwrdsvFunction
-time=2026-04-07T11:07:34.969+02:00 level=INFO msg="running esbuild" service=runtime.node functionID=EmailApiRouteTmskrbHandler
-time=2026-04-07T11:07:35.209+02:00 level=INFO msg="esbuild finished" service=runtime.node functionID=EmailQueueSubscriberMwrdsvFunction
-time=2026-04-07T11:07:35.213+02:00 level=INFO msg="esbuild finished" service=runtime.node functionID=EmailApiRouteTmskrbHandler
-time=2026-04-07T11:07:35.216+02:00 level=INFO msg="function built" runtime=nodejs24.x functionID=EmailQueueSubscriberMwrdsvFunction
-time=2026-04-07T11:07:35.219+02:00 level=INFO msg="function built" runtime=nodejs24.x functionID=EmailApiRouteTmskrbHandler
-time=2026-04-07T11:07:35.307+02:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2026-04-07T11:07:35.377+02:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2026-04-07T11:07:35.493+02:00 level=INFO msg="INFO pushing partial state updateID=fe6298cdd7bbab69b79e4ff2"
-time=2026-04-07T11:07:41.437+02:00 level=INFO msg="INFO pushing partial state updateID=fe6298cdd7bbab69b79e4ff2"
-time=2026-04-07T11:07:41.444+02:00 level=INFO msg="pulumi exited" service=project.run updateID=fe6298cdd7bbab69b79e4ff2 err=<nil>
-time=2026-04-07T11:07:41.444+02:00 level=INFO msg="eof and exited" service=project.run updateID=fe6298cdd7bbab69b79e4ff2 eofs=0
-time=2026-04-07T11:07:41.444+02:00 level=INFO msg="eof and exited" service=project.run updateID=fe6298cdd7bbab69b79e4ff2 eofs=1
-time=2026-04-07T11:07:41.445+02:00 level=INFO msg="breaking out of tail loop" service=project.run updateID=fe6298cdd7bbab69b79e4ff2
-time=2026-04-07T11:07:41.445+02:00 level=INFO msg="parsing state" service=project.run updateID=fe6298cdd7bbab69b79e4ff2
-time=2026-04-07T11:07:41.601+02:00 level=INFO msg="generating types" root=/Users/cristinagferreira/cursor/email-service
-time=2026-04-07T11:07:41.603+02:00 level=INFO msg="canceling partial" service=project.run updateID=fe6298cdd7bbab69b79e4ff2
-time=2026-04-07T11:07:41.603+02:00 level=INFO msg="waiting for partial to exit" service=project.run updateID=fe6298cdd7bbab69b79e4ff2
-time=2026-04-07T11:07:42.012+02:00 level=INFO msg="INFO pushing snapshot updateID=fe6298cdd7bbab69b79e4ff2"
-time=2026-04-07T11:07:42.012+02:00 level=INFO msg="INFO pushing eventlog updateID=fe6298cdd7bbab69b79e4ff2"
-time=2026-04-07T11:07:44.241+02:00 level=INFO msg="INFO putting update app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:44.444+02:00 level=INFO msg="done running stack command" service=project.run updateID=fe6298cdd7bbab69b79e4ff2 resources=40
-time=2026-04-07T11:07:44.448+02:00 level=INFO msg="INFO unlocking app=email-service stage=cristinagferreira"
-time=2026-04-07T11:07:45.030+02:00 level=INFO msg="shutting down server" service=server
-time=2026-04-07T11:07:45.035+02:00 level=INFO msg="server done" service=server
+time=2026-04-07T13:29:59.179+02:00 level=INFO msg="checking for pulumi" path="/Users/cristinagferreira/Library/Application Support/sst/bin/pulumi"
+time=2026-04-07T13:29:59.496+02:00 level=INFO msg="checking for bun" path="/Users/cristinagferreira/Library/Application Support/sst/bin/bun"
+time=2026-04-07T13:29:59.510+02:00 level=INFO msg="initializing project" version=4.6.10
+time=2026-04-07T13:29:59.512+02:00 level=INFO msg="esbuild building" out=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775561399511.mjs
+time=2026-04-07T13:29:59.524+02:00 level=INFO msg="esbuild built" outfile=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775561399511.mjs
+time=2026-04-07T13:29:59.525+02:00 level=INFO msg="evaluating config"
+time=2026-04-07T13:29:59.569+02:00 level=INFO msg="config evaluated"
+time=2026-04-07T13:29:59.570+02:00 level=INFO msg="checking platform"
+time=2026-04-07T13:29:59.570+02:00 level=INFO msg="loading home"
+time=2026-04-07T13:29:59.572+02:00 level=INFO msg="aws credentials found" region=eu-west-1 profile=personal
+time=2026-04-07T13:29:59.573+02:00 level=INFO msg="fetching bootstrap"
+time=2026-04-07T13:29:59.776+02:00 level=INFO msg="found existing bootstrap" data="{\"version\":5,\"asset\":\"sst-asset-mcxfcxkfukku\",\"assetEcrRegistryId\":\"540175642752\",\"assetEcrUrl\":\"540175642752.dkr.ecr.eu-west-1.amazonaws.com/sst-asset\",\"state\":\"sst-state-mcxfcxkfukku\",\"appsyncHttp\":\"\",\"appsyncRealtime\":\"\"}"
+time=2026-04-07T13:29:59.776+02:00 level=INFO msg="loaded config" app=email-service stage=cristinagferreira
+time=2026-04-07T13:29:59.776+02:00 level=INFO msg="initializing ui" isTTY=true
+time=2026-04-07T13:29:59.777+02:00 level=INFO msg="server port assigned" port=13557
+time=2026-04-07T13:29:59.778+02:00 level=INFO msg="running stack command" service=project.run cmd=deploy
+time=2026-04-07T13:29:59.779+02:00 level=INFO msg="INFO locking app=email-service stage=cristinagferreira"
+time=2026-04-07T13:29:59.779+02:00 level=INFO msg="INFO getting data key=lock app=email-service stage=cristinagferreira"
+time=2026-04-07T13:29:59.779+02:00 level=INFO msg=starting service=server
+time=2026-04-07T13:29:59.781+02:00 level=INFO msg=server service=server addr=0.0.0.0:13557
+time=2026-04-07T13:29:59.781+02:00 level=INFO msg="server ready to accept connections" service=server
+time=2026-04-07T13:30:00.172+02:00 level=INFO msg="INFO putting update app=email-service stage=cristinagferreira"
+time=2026-04-07T13:30:00.363+02:00 level=INFO msg="INFO getting passphrase app=email-service stage=cristinagferreira"
+time=2026-04-07T13:30:00.567+02:00 level=INFO msg="INFO pulling state app=email-service stage=cristinagferreira out=/Users/cristinagferreira/cursor/email-service/.sst/pulumi/fe62984b221cf27f91578540/.pulumi/stacks/email-service/cristinagferreira.json"
+time=2026-04-07T13:30:01.078+02:00 level=INFO msg="got previous deployment" service=project.run updateID=fe62984b221cf27f91578540
+time=2026-04-07T13:30:01.078+02:00 level=INFO msg="esbuild building" out=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775561400566.mjs
+time=2026-04-07T13:30:01.129+02:00 level=INFO msg="esbuild built" outfile=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775561400566.mjs
+time=2026-04-07T13:30:01.136+02:00 level=INFO msg="built sst.config.ts" service=project.run updateID=fe62984b221cf27f91578540 to=/Users/cristinagferreira/cursor/email-service/.sst/platform/sst.config.1775561400566.mjs
+time=2026-04-07T13:30:01.139+02:00 level=INFO msg="tracked files" service=project.run updateID=fe62984b221cf27f91578540
+time=2026-04-07T13:30:01.139+02:00 level=INFO msg="INFO getting data key=secret app=email-service stage=cristinagferreira"
+time=2026-04-07T13:30:01.139+02:00 level=INFO msg="INFO getting data key=secret app=email-service stage=_fallback"
+time=2026-04-07T13:30:01.731+02:00 level=INFO msg="starting pulumi" service=project.run updateID=fe62984b221cf27f91578540 args="[/Users/cristinagferreira/Library/Application Support/sst/bin/pulumi up --yes -f --stack organization/email-service/cristinagferreira --non-interactive --event-log /Users/cristinagferreira/cursor/email-service/.sst/pulumi/fe62984b221cf27f91578540/eventlog.json --config aws:defaultTags={\"tags\":{\"sst:app\":\"email-service\",\"sst:stage\":\"cristinagferreira\"}} --config aws:region=eu-west-1]"
+time=2026-04-07T13:30:06.733+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:10.819+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:10.821+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:11.062+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:11.063+02:00 level=INFO msg="building function" runtime=nodejs24.x functionID=EmailApiRouteTmskrbHandler
+time=2026-04-07T13:30:11.065+02:00 level=INFO msg="loader info" service=runtime.node functionID=EmailApiRouteTmskrbHandler loader=map[]
+time=2026-04-07T13:30:11.065+02:00 level=INFO msg="running esbuild" service=runtime.node functionID=EmailApiRouteTmskrbHandler
+time=2026-04-07T13:30:11.069+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:11.083+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:11.083+02:00 level=INFO msg="building function" runtime=nodejs24.x functionID=EmailQueueSubscriberMwrdsvFunction
+time=2026-04-07T13:30:11.085+02:00 level=INFO msg="loader info" service=runtime.node functionID=EmailQueueSubscriberMwrdsvFunction loader=map[]
+time=2026-04-07T13:30:11.085+02:00 level=INFO msg="running esbuild" service=runtime.node functionID=EmailQueueSubscriberMwrdsvFunction
+time=2026-04-07T13:30:11.319+02:00 level=INFO msg="esbuild finished" service=runtime.node functionID=EmailApiRouteTmskrbHandler
+time=2026-04-07T13:30:11.326+02:00 level=INFO msg="function built" runtime=nodejs24.x functionID=EmailApiRouteTmskrbHandler
+time=2026-04-07T13:30:11.330+02:00 level=INFO msg="esbuild finished" service=runtime.node functionID=EmailQueueSubscriberMwrdsvFunction
+time=2026-04-07T13:30:11.336+02:00 level=INFO msg="function built" runtime=nodejs24.x functionID=EmailQueueSubscriberMwrdsvFunction
+time=2026-04-07T13:30:11.458+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:11.502+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:12.443+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:13.957+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:13.974+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:13.986+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:15.536+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:16.054+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:18.758+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:18.783+02:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-04-07T13:30:18.796+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:30:19.544+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:34:56.381+02:00 level=INFO msg="INFO pushing partial state updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:34:56.443+02:00 level=INFO msg="pulumi exited" service=project.run updateID=fe62984b221cf27f91578540 err=<nil>
+time=2026-04-07T13:34:56.445+02:00 level=INFO msg="eof and exited" service=project.run updateID=fe62984b221cf27f91578540 eofs=0
+time=2026-04-07T13:34:56.445+02:00 level=INFO msg="eof and exited" service=project.run updateID=fe62984b221cf27f91578540 eofs=1
+time=2026-04-07T13:34:56.445+02:00 level=INFO msg="breaking out of tail loop" service=project.run updateID=fe62984b221cf27f91578540
+time=2026-04-07T13:34:56.445+02:00 level=INFO msg="parsing state" service=project.run updateID=fe62984b221cf27f91578540
+time=2026-04-07T13:34:56.603+02:00 level=INFO msg="generating types" root=/Users/cristinagferreira/cursor/email-service
+time=2026-04-07T13:34:56.608+02:00 level=INFO msg="canceling partial" service=project.run updateID=fe62984b221cf27f91578540
+time=2026-04-07T13:34:56.608+02:00 level=INFO msg="waiting for partial to exit" service=project.run updateID=fe62984b221cf27f91578540
+time=2026-04-07T13:34:56.872+02:00 level=INFO msg="INFO pushing eventlog updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:34:56.873+02:00 level=INFO msg="INFO pushing snapshot updateID=fe62984b221cf27f91578540"
+time=2026-04-07T13:34:57.362+02:00 level=INFO msg="INFO putting update app=email-service stage=cristinagferreira"
+time=2026-04-07T13:34:57.542+02:00 level=INFO msg="done running stack command" service=project.run updateID=fe62984b221cf27f91578540 resources=58
+time=2026-04-07T13:34:57.557+02:00 level=INFO msg="INFO unlocking app=email-service stage=cristinagferreira"
+time=2026-04-07T13:34:57.716+02:00 level=INFO msg="shutting down server" service=server
+time=2026-04-07T13:34:57.716+02:00 level=INFO msg="server done" service=server

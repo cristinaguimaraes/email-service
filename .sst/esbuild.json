@@ -1,5 +1,5 @@
 
-  .sst/platform/sst.config.1775552834482.mjs ────────────────────────────────────── 809.9kb ─ 100.0%
+  .sst/platform/sst.config.1775561400566.mjs ────────────────────────────────────── 810.1kb ─ 100.0%
    ├ .sst/platform/src/components/aws/router.ts ──────────────────────────────────── 48.6kb ─── 6.0%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
@@ -509,6 +509,8 @@
    │     └ .sst/platform/src/components/index.ts
    │        └ sst.config.ts
    │           └ eval.ts
+   ├ sst.config.ts ────────────────────────────────────────────────────────────────── 1.4kb ─── 0.2%
+   │  └ eval.ts
    ├ .sst/platform/src/components/aws/apigatewayv2-private-route.ts ───────────────── 1.4kb ─── 0.2%
    │  └ .sst/platform/src/components/aws/apigatewayv2.ts
    │     └ .sst/platform/src/components/aws/index.ts
@@ -538,8 +540,6 @@
    │     └ .sst/platform/src/components/index.ts
    │        └ sst.config.ts
    │           └ eval.ts
-   ├ sst.config.ts ────────────────────────────────────────────────────────────────── 1.2kb ─── 0.1%
-   │  └ eval.ts
    ├ .sst/platform/src/components/aws/app-sync-function.ts ────────────────────────── 1.2kb ─── 0.1%
    │  └ .sst/platform/src/components/aws/app-sync.ts
    │     └ .sst/platform/src/components/aws/index.ts
@@ -611,7 +611,7 @@
    │        └ .sst/platform/src/components/index.ts
    │           └ sst.config.ts
    │              └ eval.ts
-   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 701b ──── 0.1%
+   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 734b ──── 0.1%
    │  └ eval.ts
    ├ .sst/platform/src/components/experimental/dev-command.ts ─────────────────────── 686b ──── 0.1%
    │  └ .sst/platform/src/components/experimental/index.ts

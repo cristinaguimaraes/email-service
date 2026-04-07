@@ -51,9 +51,21 @@ export default $config({
           partialResponses: true,
         },
       });
+
+      const web = new sst.aws.StaticSite("Web", {
+        path: "web",
+        build: {
+          command: "npm run build",
+          output: "dist",
+        },
+        environment: {
+          VITE_API_URL: api.url,
+        },
+      });
   
       return {
         api: api.url,
+        web: web.url,
       };
     },
   });
