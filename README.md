@@ -1,44 +1,146 @@
-# 📧 Email Service (AWS + SST)
+# 📧 Email Service
 
-A full-stack, event-driven email delivery system built with AWS and SST.
-It exposes an HTTP API and a React UI, processes requests asynchronously, and delivers emails using AWS SES.
+A simple full-stack email service built with AWS and SST.
 
----
-
-## 🚀 Live Demo
-
-* **Frontend:** `<WEB_URL>`
-* **API:** `<API_URL>`
-
-> Replace with your deployed URLs from `sst deploy`
+It exposes an API and a React UI to send emails asynchronously using EventBridge, SQS, and SES.
 
 ---
 
-## 🧠 Architecture
+## 🚀 Live
 
-```mermaid
-flowchart LR
-    A[React UI / Client] --> B[API Gateway]
-    B --> C[Lambda: send-email]
-    C --> D[EventBridge Bus]
-    D --> E[SQS Queue]
-    E --> F[Lambda: email-consumer]
-    F --> G[AWS SES]
-    G --> H[Recipient Inbox]
+* Frontend: `<WEB_URL>`
+* API: `<API_URL>`
+
+---
+
+## 🧠 How it works
+
+1. User submits a form in the UI
+2. API receives the request
+3. Event is published to EventBridge
+4. Event goes to SQS
+5. Consumer Lambda processes it
+6. Email is sent via SES
+
+---
+
+## 🧰 Tech Stack
+
+* TypeScript
+* SST
+* AWS (Lambda, API Gateway, EventBridge, SQS, SES)
+* React (Vite)
+* Vitest
+
+---
+
+## 📦 Project Structure
+
+```txt
+email-service/
+├── src/              # Backend (Lambdas)
+│   ├── api/
+│   ├── workers/
+│   └── lib/
+├── web/              # Frontend (React app)
+├── test/             # Tests
+├── sst.config.ts     # Infrastructure
+├── package.json      # Backend dependencies
+└── README.md
 ```
 
 ---
 
-## ⚙️ How it works
+## 🔌 API
 
-1. User submits the form via the React UI
-2. API Gateway triggers a Lambda (`send-email`)
-3. The Lambda validates the payload and publishes an event
-4. EventBridge routes the event to an SQS queue
-5. A consumer Lambda processes the queue message
-6. The email is sent via AWS SES
+### Endpoint
+
+```
+POST /send-email
+```
+
+### Request body
+
+```json
+{
+  "toEmail": "example@gmail.com",
+  "subject": "Hello",
+  "message": "This is a test email"
+}
+```
+
+### Response
+
+```json
+{
+  "message": "Accepted"
+}
+```
 
 ---
+
+## ⚙️ Setup
+
+Install dependencies:
+
+```bash
+npm install
+cd web && npm install
+```
+
+Deploy:
+
+```bash
+AWS_PROFILE=personal npx sst deploy
+```
+
+---
+
+## 🧪 Test API
+
+```bash
+curl -X POST "<API_URL>/send-email" \
+  -H "content-type: application/json" \
+  -d '{
+    "toEmail": "your-email@gmail.com",
+    "subject": "Test",
+    "message": "Hello"
+  }'
+```
+
+---
+
+## 📬 SES (important)
+
+### Steps:
+
+1. Go to **SES → Identities**
+2. Create identity (Email address)
+3. Verify via email link
+
+SES is in sandbox mode, so you must:
+
+* verify the sender email
+* verify the recipient email
+
+---
+
+## 🧪 Tests
+
+Run:
+
+```bash
+npm test
+```
+
+---
+
+## ✅ Status
+
+* End-to-end flow working
+* Emails successfully delivered
+
+
 
 ## 🧰 Tech Stack
 
