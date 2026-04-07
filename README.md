@@ -1,42 +1,87 @@
 # 📧 Email Service (AWS + SST)
 
-A simple event-driven email delivery service built with AWS and SST.
-The system exposes an HTTP API that accepts email requests and processes them asynchronously using EventBridge, SQS, and SES.
+A full-stack, event-driven email delivery system built with AWS and SST.
+It exposes an HTTP API and a React UI, processes requests asynchronously, and delivers emails using AWS SES.
 
 ---
 
-## 🚀 Architecture
+## 🚀 Live Demo
 
+* **Frontend:** `<WEB_URL>`
+* **API:** `<API_URL>`
+
+> Replace with your deployed URLs from `sst deploy`
+
+---
+
+## 🧠 Architecture
+
+```mermaid
+flowchart LR
+    A[React UI / Client] --> B[API Gateway]
+    B --> C[Lambda: send-email]
+    C --> D[EventBridge Bus]
+    D --> E[SQS Queue]
+    E --> F[Lambda: email-consumer]
+    F --> G[AWS SES]
+    G --> H[Recipient Inbox]
 ```
-Client → API Gateway → Lambda → EventBridge → SQS → Lambda → SES
-```
 
-### Flow:
+---
 
-1. Client sends a POST request to `/send-email`
-2. API Lambda validates the payload and publishes an event to EventBridge
-3. EventBridge routes the event to an SQS queue
-4. A consumer Lambda processes messages from the queue
-5. The consumer sends the email using AWS SES
+## ⚙️ How it works
+
+1. User submits the form via the React UI
+2. API Gateway triggers a Lambda (`send-email`)
+3. The Lambda validates the payload and publishes an event
+4. EventBridge routes the event to an SQS queue
+5. A consumer Lambda processes the queue message
+6. The email is sent via AWS SES
 
 ---
 
 ## 🧰 Tech Stack
 
-* **TypeScript**
-* **SST (Serverless Stack)**
-* **AWS Services**
+### Backend
 
-  * API Gateway
-  * Lambda
-  * EventBridge
-  * SQS
-  * SES
-* **Zod** (validation)
+* TypeScript
+* SST (Serverless Stack)
+* AWS Lambda
+* API Gateway
+* EventBridge
+* SQS
+* SES
+* Zod (validation)
+
+### Frontend
+
+* React (Vite)
+* TypeScript
+
+### Testing
+
+* Vitest
 
 ---
 
-## 📦 API
+## 📦 Project Structure
+
+```txt
+email-service/
+├── src/              # Backend (Lambdas)
+│   ├── api/
+│   ├── workers/
+│   └── lib/
+├── web/              # Frontend (React app)
+├── test/             # Tests
+├── sst.config.ts     # Infrastructure
+├── package.json      # Backend dependencies
+└── README.md
+```
+
+---
+
+## 🔌 API
 
 ### Endpoint
 
@@ -64,17 +109,30 @@ POST /send-email
 
 ---
 
+## 🖥️ Frontend
+
+A simple React UI allows users to:
+
+* enter recipient email
+* enter subject and message
+* submit requests asynchronously
+
+The UI calls the backend API using `fetch`.
+
+---
+
 ## ⚙️ Setup
 
 ### 1. Install dependencies
 
 ```bash
 npm install
+cd web && npm install
 ```
 
-### 2. Configure AWS credentials
+---
 
-Create a profile:
+### 2. Configure AWS
 
 ```bash
 aws configure --profile personal
@@ -82,7 +140,7 @@ aws configure --profile personal
 
 ---
 
-### 3. Deploy the app
+### 3. Deploy
 
 ```bash
 AWS_PROFILE=personal npx sst deploy
@@ -90,18 +148,19 @@ AWS_PROFILE=personal npx sst deploy
 
 ---
 
-## 🧪 Testing
+## 🧪 Running locally
 
-Send a request using curl:
+### Backend (dev mode)
 
 ```bash
-curl -X POST "<API_URL>/send-email" \
-  -H "content-type: application/json" \
-  -d '{
-    "toEmail": "your-email@gmail.com",
-    "subject": "Test email",
-    "message": "Hello from SST 🚀"
-  }'
+AWS_PROFILE=personal npx sst dev
+```
+
+### Frontend
+
+```bash
+cd web
+npm run dev
 ```
 
 ---
@@ -117,7 +176,25 @@ AWS SES starts in **sandbox mode**, which requires:
 
 1. Go to **SES → Identities**
 2. Create identity (Email address)
-3. Verify your email via confirmation link
+3. Verify via email link
+
+> In sandbox mode, both sender and recipient must be verified.
+
+---
+
+## 🧪 Testing
+
+Run tests:
+
+```bash
+npm test
+```
+
+Includes:
+
+* API validation tests
+* SQS consumer behavior tests
+* SES interaction mocking
 
 ---
 
@@ -125,68 +202,67 @@ AWS SES starts in **sandbox mode**, which requires:
 
 ### Event-driven architecture
 
-The system is decoupled using EventBridge and SQS, allowing:
+Decouples API from processing:
 
-* scalability
-* fault tolerance
-* easier extension (e.g. adding more consumers)
+* scalable
+* fault-tolerant
+* extensible
 
 ### Asynchronous processing
 
-The API responds immediately (`202 Accepted`) while the email is processed in the background.
+API responds immediately (`202 Accepted`), improving responsiveness.
 
-### Queue-based processing
+### SQS queue
 
-SQS ensures:
+Ensures:
 
-* retries on failure
+* retries
 * durability
-* no message loss
+* message buffering
 
 ---
 
 ## ⚠️ Limitations
 
-* SES is in sandbox mode (only verified emails allowed)
-* No authentication on the API
-* Minimal validation (can be extended)
-* No retry DLQ handling in UI (but queue supports it)
+* SES sandbox restrictions (verified emails only)
+* No authentication on API
+* Minimal UI validation
+* No monitoring dashboard
 
 ---
 
-## 🔮 Possible Improvements
+## 🔮 Improvements
 
 * Move SES out of sandbox
-* Add authentication (e.g. API key or JWT)
-* Add frontend UI
-* Add monitoring (CloudWatch dashboards)
-* Add retry/DLQ visibility
+* Add authentication (JWT/API key)
+* Add DLQ visibility
+* Add metrics/alerts (CloudWatch)
 * Add integration tests
+* Improve UI/UX
 
 ---
 
-## 🧪 Testing Strategy
+## 🚀 Deployment
 
-Basic validation and handler logic can be tested using unit tests (e.g. Vitest).
+Frontend is deployed using SST `StaticSite`:
 
----
+* built with Vite
+* hosted via AWS (CloudFront)
 
-## 📄 Notes
-
-* Uses SST for infrastructure as code
-* Uses AWS SDK v3
-* Designed to be simple, modular, and extensible
+Backend deployed with SST infrastructure.
 
 ---
 
 ## ✅ Status
 
-✔ Core architecture implemented
-✔ End-to-end email delivery working
-✔ Successfully tested with AWS SES
+✔ Backend architecture complete
+✔ Frontend integrated
+✔ End-to-end flow working
+✔ Email delivery verified
 
 ---
 
 ## 👩‍💻 Author
 
 Cristina Guimarães
+
