@@ -15,16 +15,10 @@ type EventBridgeEnvelope = {
 };
 
 async function processRecord(record: SQSRecord) {
-    console.log("raw record body:", record.body);
-  
     const envelope = JSON.parse(record.body) as EventBridgeEnvelope;
-    console.log("parsed envelope:", envelope);
-  
     const payload = sendEmailSchema.parse(envelope.detail);
-    console.log("validated payload:", payload);
-    console.log("sending email to:", payload.toEmail);
   
-    const result = await ses.send(
+    await ses.send(
       new SendEmailCommand({
         FromEmailAddress: process.env.FROM_EMAIL!,
         Destination: {
@@ -40,13 +34,9 @@ async function processRecord(record: SQSRecord) {
         },
       }),
     );
-  
-    console.log("SES result:", JSON.stringify(result, null, 2));
   }
   
   export const handler: SQSHandler = async (event): Promise<SQSBatchResponse> => {
-    console.log("records count:", event.Records.length);
-  
     const batchItemFailures: { itemIdentifier: string }[] = [];
   
     for (const record of event.Records) {

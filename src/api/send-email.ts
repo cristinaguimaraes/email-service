@@ -1,23 +1,24 @@
 import type { APIGatewayProxyHandlerV2 } from "aws-lambda";
 import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge";
 import { sendEmailSchema } from "../lib/schema";
+import { z } from "zod";
 
 const eventBridge = new EventBridgeClient({});
 
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
-    console.log("handler invoked");
-    console.log("raw event body:", event.body);
-    console.log("EVENT_BUS_NAME:", process.env.EVENT_BUS_NAME);
+// Deploy test - April 7.
   try {
     const body = event.body ? JSON.parse(event.body) : {};
     const parsed = sendEmailSchema.safeParse(body);
 
     if (!parsed.success) {
+      const flattened = z.flattenError(parsed.error);
+
       return {
         statusCode: 400,
         body: JSON.stringify({
           message: "Invalid payload",
-          errors: parsed.error.flatten(),
+          errors: flattened,
         }),
       };
     }
