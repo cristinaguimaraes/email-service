@@ -22,6 +22,8 @@ It provides an API and a React UI to send emails asynchronously using EventBridg
 5. Consumer Lambda processes it
 6. Email is sent via SES
 
+The API responds immediately while email delivery happens asynchronously in the background.
+
 ---
 
 ## 🧰 Tech Stack
@@ -44,6 +46,7 @@ email-service/
 │   └── lib/
 ├── web/              # Frontend (React app)
 ├── test/             # Tests
+├── .github/          # GitHub Actions workflow
 ├── sst.config.ts     # Infrastructure
 ├── package.json      # Backend dependencies
 └── README.md
@@ -149,12 +152,21 @@ npm test
 
 ## 🚀 Deployment
 
-Frontend is deployed using SST `StaticSite`:
+Manual deploy
+AWS_PROFILE=personal npx sst deploy
+GitHub Actions
 
-* built with Vite
-* hosted via AWS (CloudFront)
+A basic GitHub Actions workflow is included to:
 
-Backend deployed with SST infrastructure.
+install dependencies
+run tests
+deploy the app to AWS
+
+Workflow location:
+
+.github/workflows/deploy.yml
+
+It can be triggered manually from the Actions tab.
 
 ---
 
@@ -162,3 +174,5 @@ Backend deployed with SST infrastructure.
 
 * End-to-end flow working
 * Emails successfully delivered
+* Frontend deployed
+* CI/CD workflow configured
