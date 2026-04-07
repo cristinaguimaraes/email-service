@@ -44,18 +44,5 @@ jobs:
         run: aws s3 ls    
 
       - name: Deploy
-        env:
-          NODE_OPTIONS: "--max-old-space-size=4096"
-        run: npx sst deploy --stage cristinagferreira --verbose > sst_out.txt 2>&1 || (tail -n 100 sst_out.txt && exit 1)
-
-      - name: Print debug logs on failure
-        if: failure()
-        run: |
-          echo "=== SST log ==="
-          cat .sst/log/sst.log || true
-
-          echo "=== Pulumi files ==="
-          find .sst/pulumi -type f | sort || true
-
-          echo "=== Pulumi event logs ==="
-          find .sst/pulumi -name "eventlog.json" -exec sh -c 'echo "--- {} ---"; cat "{}"; echo' \; || true   
+        run: npx sst deploy --stage cristinagferreira 
+  

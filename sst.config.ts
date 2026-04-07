@@ -15,7 +15,7 @@ export default $config({
   
       const queue = new sst.aws.Queue("EmailQueue", {
         dlq: {
-          queue: dlq,
+          queue: dlq.arn,
           retry: 3,
         },
       });
@@ -32,30 +32,34 @@ export default $config({
       sst.aws.Bus.subscribeQueue("SendEmailRequestedRule", bus.arn, queue.arn, {
         pattern: {
           source: ["app.email"],
-          "detail-type": ["SendEmailRequested"],
+          detailType: ["SendEmailRequested"] as const,
         },
       });
   
-      queue.subscribe({
-        handler: "src/workers/email-consumer.handler",
-        environment: {
-          FROM_EMAIL: "crisgferreira@gmail.com",
-        },
-        permissions: [
-          {
-            actions: ["ses:SendEmail", "ses:SendRawEmail"],
-            resources: ["*"],
+      queue.subscribe(
+        {
+          handler: "src/workers/email-consumer.handler",
+          environment: {
+            FROM_EMAIL: "crisgferreira@gmail.com",
           },
-        ],
-        batch: {
-          partialResponses: true,
+          permissions: [
+            {
+              actions: ["ses:SendEmail", "ses:SendRawEmail"],
+              resources: ["*"],
+            },
+          ],
         },
-      });
+        {
+          batch: {
+            partialResponses: true,
+          },
+        },
+      );
 
       const web = new sst.aws.StaticSite("Web", {
         path: "web",
         build: {
-          command: "npm install && npm run build",
+        command: "npm install && npm run build",
           output: "dist",
         },
         environment: {

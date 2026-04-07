@@ -52,7 +52,7 @@ describe("email-consumer handler", () => {
     const result = (await handler(
       event as any,
       {} as Context,
-      (() => undefined) as Callback<SQSBatchResponse>,
+      (() => undefined) as Callback<void | SQSBatchResponse>,
     )) as SQSBatchResponse;
 
     expect(result.batchItemFailures).toEqual([]);
@@ -84,7 +84,7 @@ describe("email-consumer handler", () => {
     const result = (await handler(
       event as any,
       {} as Context,
-      (() => undefined) as Callback<SQSBatchResponse>,
+      (() => undefined) as Callback<void | SQSBatchResponse>,
     )) as SQSBatchResponse;
 
     expect(result.batchItemFailures).toEqual([{ itemIdentifier: "msg-1" }]);
