@@ -119,8 +119,6 @@ AWS SES starts in **sandbox mode**, which requires:
 2. Create identity (Email address)
 3. Verify your email via confirmation link
 
-> Note: Both sender and recipient must be verified in sandbox mode.
-
 ---
 
 ## 🧠 Design Decisions
