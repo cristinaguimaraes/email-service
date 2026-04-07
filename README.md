@@ -158,9 +158,9 @@ GitHub Actions
 
 A basic GitHub Actions workflow is included to:
 
-install dependencies
-run tests
-deploy the app to AWS
+* install dependencies
+* run tests
+* deploy the app to AWS
 
 Workflow location:
 
