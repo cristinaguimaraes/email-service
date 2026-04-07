@@ -1,0 +1,18 @@
+Updating (cristinagferreira):
+@ updating.....
+
+@ updating...................
+ ~  aws:lambda:Function EmailQueueSubscriberMwrdsvFunctionFunction updating (0s) [diff: ~environment]
+@ updating.........
+ ~  aws:lambda:Function EmailQueueSubscriberMwrdsvFunctionFunction updated (5s) [diff: ~environment]
+    pulumi:pulumi:Stack email-service-cristinagferreira  
+Outputs:
+    _protect: false
+    api     : "https://wnyfu10237.execute-api.eu-west-1.amazonaws.com"
+
+Resources:
+    ~ 1 updated
+    37 unchanged
+
+Duration: 23s
+

@@ -1,0 +1,5 @@
+{
+    "extends": "./.sst/platform/tsconfig.json",
+    "include": ["stacks/**/*", "sst.config.ts"],
+    "exclude": ["packages/", "apps/", "tooling/"]
+  }
