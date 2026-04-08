@@ -59,7 +59,7 @@ SES_FROM_EMAIL=your-verified-email@example.com
 
 ---
 
-##🔌 API Usage
+## 🔌 API Usage
 Endpoint: POST /send-email
 
 Request Body:
@@ -79,7 +79,7 @@ JSON
 
 ---
 
-##📬 SES Configuration (Important)
+## 📬 SES Configuration (Important)
 AWS SES starts in Sandbox Mode, so you must:
 
 Go to SES → Identities in the AWS Console.
@@ -90,7 +90,7 @@ Note: In sandbox mode, you can only send emails to other verified addresses.
 
 ---
 
-##🧪 Testing
+## 🧪 Testing
 Run Automated Tests
 Bash
 npm test
@@ -106,7 +106,7 @@ CI/CD: A GitHub Actions workflow is included in .github/workflows/deploy.yml. It
 
 ---
 
-##✅ Status
+## ✅ Status
 [x] End-to-end flow working
 
 [x] Emails successfully delivered
