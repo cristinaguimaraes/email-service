@@ -59,10 +59,10 @@ AWS_PROFILE=personal npx sst deploy
 ## 🔐 Environment Variables
 Create a .env file in the root if needed for local configuration:
 
-Plaintext
+```Plaintext
 AWS_REGION=your-region
 SES_FROM_EMAIL=your-verified-email@example.com
-
+```
 ---
 
 ## 🔌 API Usage
