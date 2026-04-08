@@ -93,13 +93,15 @@ Response:
 ---
 
 ## 📬 SES Configuration (Important)
-AWS SES starts in Sandbox Mode, so you must:
+### Steps:
 
-Go to SES → Identities in the AWS Console.
+1. Go to **SES → Identities**
+2. Create identity (Email address)
+3. Verify via email link
 
-Verify your sender email address via the link sent to your inbox.
+SES is in sandbox mode, so you must:
 
-Note: In sandbox mode, you can only send emails to other verified addresses.
+* verify the sender email
 
 ---
 
