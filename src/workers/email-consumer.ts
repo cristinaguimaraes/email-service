@@ -1,17 +1,13 @@
 import type { SQSHandler, SQSBatchResponse, SQSRecord } from "aws-lambda";
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
-import { sendEmailSchema } from "../lib/schema";
+import { sendEmailSchema, SendEmailInput } from "../lib/schema";
 
 const ses = new SESv2Client({});
 
 type EventBridgeEnvelope = {
   source: string;
   "detail-type": string;
-  detail: {
-    toEmail: string;
-    subject: string;
-    message: string;
-  };
+  detail: SendEmailInput;
 };
 
 async function processRecord(record: SQSRecord) {

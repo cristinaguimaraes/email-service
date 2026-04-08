@@ -6,7 +6,7 @@ import { z } from "zod";
 const eventBridge = new EventBridgeClient({});
 
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
-// Deploy test - April 7.
+
   try {
     const body = event.body ? JSON.parse(event.body) : {};
     const parsed = sendEmailSchema.safeParse(body);
@@ -18,7 +18,7 @@ export const handler: APIGatewayProxyHandlerV2 = async (event) => {
         statusCode: 400,
         body: JSON.stringify({
           message: "Invalid payload",
-          errors: flattened,
+          errors: flattened.fieldErrors,
         }),
       };
     }

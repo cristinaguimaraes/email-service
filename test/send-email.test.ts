@@ -1,9 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import type {
   APIGatewayProxyEventV2,
-  APIGatewayProxyResultV2,
-  Callback,
-  Context,
 } from "aws-lambda";
 
 const sendMock = vi.fn();
@@ -43,16 +40,9 @@ describe("send-email handler", () => {
       }),
     } as APIGatewayProxyEventV2;
 
-    const result = (await handler(
-      event,
-      {} as Context,
-      (() => undefined) as Callback<APIGatewayProxyResultV2>,
-    )) as APIGatewayProxyResultV2;
+    const result = await handler(event, {} as any, () => {}) as { statusCode: number; body: string };
 
-    expect(typeof result).toBe("object");
-    if (typeof result !== "string") {
-      expect(result.statusCode).toBe(400);
-    }
+    expect(result.statusCode).toBe(400);
   });
 
   it("returns 202 for valid payload", async () => {
@@ -68,17 +58,9 @@ describe("send-email handler", () => {
       }),
     } as APIGatewayProxyEventV2;
 
-    const result = (await handler(
-      event,
-      {} as Context,
-      (() => undefined) as Callback<APIGatewayProxyResultV2>,
-    )) as APIGatewayProxyResultV2;
+    const result = await handler(event, {} as any, () => {}) as { statusCode: number; body: string };
 
-    expect(typeof result).toBe("object");
-    if (typeof result !== "string") {
-      console.log(result.body);
-      expect(result.statusCode).toBe(202);
-    }
+    expect(result.statusCode).toBe(202);
 
     expect(sendMock).toHaveBeenCalled();
   });

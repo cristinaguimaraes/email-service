@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -19,13 +18,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
-      - name: Install root dependencies
-        run: npm ci
-
-      - name: Install web dependencies
-        run: npm ci
-        working-directory: web
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm ci --prefix web
 
       - name: Run tests
         run: npm test
@@ -35,13 +33,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-
-      - name: Verify AWS identity
-        run: aws sts get-caller-identity
-
-      - name: Verify S3 access
-        run: aws s3 ls    
+          aws-region: eu-west-1   
 
       - name: Deploy
         run: npx sst deploy --stage cristinagferreira 

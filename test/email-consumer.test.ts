@@ -89,4 +89,21 @@ describe("email-consumer handler", () => {
 
     expect(result.batchItemFailures).toEqual([{ itemIdentifier: "msg-1" }]);
   });
+
+  it("returns batch failure if the data is invalid", async () => {
+    const { handler } = await import("../src/workers/email-consumer");
+  
+    const event = {
+      Records: [{
+          messageId: "bad-msg",
+          body: JSON.stringify({
+            detail: { toEmail: "not-an-email" } 
+          }),
+      }],
+    };
+  
+    const result = await handler(event as any, {} as any, () => {}) as SQSBatchResponse;
+  
+    expect(result.batchItemFailures).toEqual([{ itemIdentifier: "bad-msg" }]);
+  });
 });
