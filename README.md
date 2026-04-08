@@ -43,14 +43,20 @@ email-service/
 ---
 
 ## ⚙️ Setup
-1. Install Dependencies
-Bash
+### 1. Install dependencies
+
+```bash
 npm install
 cd web && npm install
+```
 2. Deploy to AWS
-Bash
-npx sst deploy --stage dev
-🔐 Environment Variables
+```bash
+AWS_PROFILE=personal npx sst deploy
+```
+
+---
+
+## 🔐 Environment Variables
 Create a .env file in the root if needed for local configuration:
 
 Plaintext
@@ -60,22 +66,29 @@ SES_FROM_EMAIL=your-verified-email@example.com
 ---
 
 ## 🔌 API Usage
-Endpoint: POST /send-email
+
+### Endpoint
+
+```
+POST /send-email
+```
 
 Request Body:
 
-JSON
+```json
 {
   "toEmail": "example@gmail.com",
   "subject": "Hello",
   "message": "This is a test email"
 }
+```
 Response:
 
-JSON
+```json
 {
   "message": "Accepted"
 }
+```
 
 ---
 
@@ -92,14 +105,23 @@ Note: In sandbox mode, you can only send emails to other verified addresses.
 
 ## 🧪 Testing
 Run Automated Tests
-Bash
+```bash
 npm test
+```
 Manual Curl Test
-Bash
-curl -X POST "<YOUR_API_URL>/send-email" \
-  -H "Content-Type: application/json" \
-  -d '{"toEmail": "verified-email@gmail.com", "subject": "Test", "message": "Hello"}'
-🚀 Deployment
+```bash
+curl -X POST "<API_URL>/send-email" \
+  -H "content-type: application/json" \
+  -d '{
+    "toEmail": "your-email@gmail.com",
+    "subject": "Test",
+    "message": "Hello"
+  }'
+```
+
+---
+
+##🚀 Deployment
 Manual: npx sst deploy --stage prod
 
 CI/CD: A GitHub Actions workflow is included in .github/workflows/deploy.yml. It automatically runs tests and deploys the application on every push to the main branch.
