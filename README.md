@@ -121,10 +121,20 @@ curl -X POST "<API_URL>/send-email" \
 
 ---
 
-##🚀 Deployment
-Manual: npx sst deploy --stage prod
+## 🚀 Deployment
+AWS_PROFILE=personal npx sst deploy
 
-CI/CD: A GitHub Actions workflow is included in .github/workflows/deploy.yml. It automatically runs tests and deploys the application on every push to the main branch.
+A basic GitHub Actions workflow is included to:
+
+* install dependencies
+* run tests
+* deploy the app to AWS
+
+Workflow location:
+
+.github/workflows/deploy.yml
+
+It can be triggered manually from the Actions tab.
 
 ---
 
