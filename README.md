@@ -1,4 +1,3 @@
-Markdown
 # 📧 Simple Email Service
 
 This is a full-stack application that sends emails using AWS. It uses an **asynchronous architecture**, meaning the API responds instantly while email delivery is handled in the background.
