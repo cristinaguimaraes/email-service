@@ -107,11 +107,12 @@ SES is in sandbox mode, so you must:
 ---
 
 ## 🧪 Testing
-Run Automated Tests
+### Run Automated Tests
 ```bash
 npm test
 ```
-Manual Curl Test
+
+### Manual Curl Test
 ```bash
 curl -X POST "<API_URL>/send-email" \
   -H "content-type: application/json" \
