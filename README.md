@@ -125,8 +125,10 @@ curl -X POST "<API_URL>/send-email" \
 ---
 
 ## 🚀 Deployment
+### Manual deploy
 ```bashAWS_PROFILE=personal npx sst deploy```
 
+### GitHub Actions
 A basic GitHub Actions workflow is included to:
 
 * install dependencies
