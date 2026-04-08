@@ -31,7 +31,7 @@ function App() {
       const data = await response.json();
 
       if (!response.ok) {
-        setResult(data.message || "Something went wrong");
+        setResult(data.message || "Validation failed");
       } else {
         setResult("Email request accepted");
         setToEmail("");
@@ -39,7 +39,7 @@ function App() {
         setMessage("");
       }
     } catch {
-      setResult("Request failed");
+      setResult("Network error: Could not reach the server");
     } finally {
       setLoading(false);
     }
@@ -64,7 +64,7 @@ function App() {
           required
         />
         <textarea
-          placeholder="Message"
+          placeholder="Write your message..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={6}
@@ -75,7 +75,16 @@ function App() {
         </button>
       </form>
 
-      {result && <p style={{ marginTop: 16 }}>{result}</p>}
+      {result && (
+        <div style={{ 
+          marginTop: 16, 
+          padding: "10px", 
+          backgroundColor: result.includes("accepted") ? "#dcfce7" : "#fee2e2",
+          borderRadius: "4px"
+        }}>
+          {result}
+        </div>
+      )}
     </div>
   );
 }
