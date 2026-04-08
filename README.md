@@ -49,7 +49,7 @@ email-service/
 npm install
 cd web && npm install
 ```
-2. Deploy to AWS
+### 2. Deploy to AWS
 ```bash
 AWS_PROFILE=personal npx sst deploy
 ```
@@ -102,7 +102,8 @@ Response:
 SES is in sandbox mode, so you must:
 
 * verify the sender email
-
+* verify the recipient email
+  
 ---
 
 ## 🧪 Testing
@@ -124,7 +125,7 @@ curl -X POST "<API_URL>/send-email" \
 ---
 
 ## 🚀 Deployment
-AWS_PROFILE=personal npx sst deploy
+```bashAWS_PROFILE=personal npx sst deploy```
 
 A basic GitHub Actions workflow is included to:
 
