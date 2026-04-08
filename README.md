@@ -141,10 +141,7 @@ It can be triggered manually from the Actions tab.
 ---
 
 ## ✅ Status
-[x] End-to-end flow working
-
-[x] Emails successfully delivered
-
-[x] Frontend deployed via CloudFront
-
-[x] CI/CD workflow configured
+* End-to-end flow working
+* Emails successfully delivered
+* Frontend deployed
+* CI/CD workflow configured
