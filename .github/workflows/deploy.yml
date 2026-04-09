@@ -35,6 +35,7 @@ jobs:
         run: npm test
 
       - name: Configure AWS credentials
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -42,5 +43,6 @@ jobs:
           aws-region: eu-west-1   
 
       - name: Deploy
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: npx sst deploy --stage cristinagferreira 
   
