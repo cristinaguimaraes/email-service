@@ -1,6 +1,0 @@
-.sst
-.pulumi
-node_modules
-dist
-web/dist
-web/node_modules
